@@ -11,7 +11,7 @@ angular.module('myApp', [
   'myApp.homepage',
   'myApp.ModalInnerContent',
   // 'myApp.view2',
-  'myApp.version',
+  // 'myApp.version',
   'underscore',
   'ngSanitize'
 ])
