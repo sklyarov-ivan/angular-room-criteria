@@ -1,0 +1,7 @@
+  <ui-select multiple ng-model="availableParams.selected" theme="select2" ng-disabled="disabled" style="width: 100%;">
+    <ui-select-match placeholder="Select number...">{{$item.value}}</ui-select-match>
+    <ui-select-choices repeat="params in availableParams | filter:$select.search">
+      {{params.value}}
+    </ui-select-choices>
+  </ui-select>
+

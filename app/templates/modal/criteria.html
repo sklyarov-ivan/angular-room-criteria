@@ -1,0 +1,48 @@
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content" ng-controller="ModalInnerContent">
+      <div class="modal-header" ng-show="title">
+        <button type="button" class="close" ng-click="$hide()">&times;</button>
+        <h4 class="modal-title" ng-bind-html="title"></h4>
+      </div>
+      <div class="modal-body" ng-show="content">
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="bedrooms">Bedrooms</label>
+                    <rooms selected="bedrooms_selected" type="bedroom">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="bathrooms">Bathrooms</label>
+                    <rooms selected="bathrooms_selected" type="bathroom">
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="preferred_location">Preferred Location</label>
+                    <input type="text" class="col-md-12" id="preferred_location" name="preferred_location" ng-model="location">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="preffered_price">Preffered Price</label>
+                    <input type="text" class="col-md-12" id="preffered_price" name="preffered_price" ng-model="price">
+                    </div>
+                </div>
+
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="submitCriteria()">Save</button>
+        <button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
