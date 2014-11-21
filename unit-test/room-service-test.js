@@ -42,7 +42,7 @@ describe('Service: room-service', function () {
                 var res = RoomService.bathroom();
                 $httpBackend.flush();
                 res.then(function(data){
-                    expect(JSON.stringify(testData)).toEqual(JSON.stringify(data));
+                    expect(JSON.stringify(testData)).toEqual(JSON.stringify(data.data));
                 });
             });
 
@@ -56,13 +56,13 @@ describe('Service: room-service', function () {
                 var res = RoomService.bathroom();
                 $httpBackend.flush();
                 res.catch(function(data){
-                    expect(testData).toEqual(data);
+                    expect(testData).toEqual(data.data);
                 });
             });
 
         });
 
-        describe('bathroom', function(){
+        describe('bedroom', function(){
             it('should have an bedroom function', function () { 
                 expect(angular.isFunction(RoomService.bedroom)).toBe(true);
             });
@@ -84,7 +84,7 @@ describe('Service: room-service', function () {
                 var res = RoomService.bedroom();
                 $httpBackend.flush();
                 res.then(function(data){
-                    expect(JSON.stringify(testData)).toEqual(JSON.stringify(data));
+                    expect(JSON.stringify(testData)).toEqual(JSON.stringify(data.data));
                 });
             });
 
@@ -98,7 +98,7 @@ describe('Service: room-service', function () {
                 var res = RoomService.bedroom();
                 $httpBackend.flush();
                 res.catch(function(data){
-                    expect(testData).toEqual(data);
+                    expect(testData).toEqual(data.data);
                 });
             });
 
@@ -148,7 +148,7 @@ describe('Service: room-service', function () {
                 var res = RoomService.saveCriteria(data);
                 $httpBackend.flush();
                 res.then(function(data){
-                    expect(JSON.stringify(testData)).toEqual(JSON.stringify(data));
+                    expect(JSON.stringify(testData)).toEqual(JSON.stringify(data.data));
                 });
             });
 
@@ -180,7 +180,7 @@ describe('Service: room-service', function () {
                 var res = RoomService.saveCriteria(data);
                 $httpBackend.flush();
                 res.catch(function(data){
-                    expect(testData).toEqual(data);
+                    expect(testData).toEqual(data.data);
                 });
             });
         });

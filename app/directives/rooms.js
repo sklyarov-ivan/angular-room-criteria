@@ -12,12 +12,12 @@ myDirectives.directive('rooms', function(RoomService, _) {
             $scope.availableParams = [];
             $scope.multipleParams = {};
             $scope.multipleParams.selected = [];
-            RoomService[$scope.type]().then(function(data){
-                $scope.availableParams = data;
+            RoomService[$scope.type]().then(function(response){
+                $scope.availableParams = response.data;
             });
 
             $scope.$watch('availableParams.selected',function(newVal,oldVal){
-                $scope.selectedVal = newVal
+                $scope.selectedVal = newVal;
             });
         }
     }

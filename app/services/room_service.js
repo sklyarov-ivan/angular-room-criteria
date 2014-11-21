@@ -4,30 +4,13 @@ myServices.factory('RoomService',['$http','$q','APP_SETTINGS','_',
     function($http,$q,APP_SETTINGS,_){
         return {
             bathroom : function() {
-                var deferred = $q.defer();
-                $http
+                return $http
                 .get(APP_SETTINGS.getUrl('bathrooms'))
-                .success(function(data){
-                    deferred.resolve(data);
-                })
-                .error(function(err){
-                    deferred.reject(err);
-                });
-
-                return deferred.promise;
-
             },
             bedroom : function() {
-                var deferred = $q.defer();
-                $http
+                return $http
                 .get(APP_SETTINGS.getUrl('bedrooms'))
-                .success(function(data){
-                    deferred.resolve(data);
-                })
-                .error(function(err){
-                    deferred.reject(err);
-                });
-                return deferred.promise;
+
             },
             saveCriteria: function(data) {
                 var bathroom = _.map(data.bathroom,function(i,n){
@@ -50,16 +33,8 @@ myServices.factory('RoomService',['$http','$q','APP_SETTINGS','_',
                     price: data.price,
                     location: data.location
                 };
-                var deferred = $q.defer();
-                $http
+                return $http
                 .post(APP_SETTINGS.getUrl('criteria'),res)
-                .success(function(data){
-                    deferred.resolve(data);
-                })
-                .error(function(err){
-                    deferred.reject(err);
-                });
-                return deferred.promise;
             }
         }
     }]);

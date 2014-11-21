@@ -8,9 +8,9 @@ angular.module('myApp.ModalInnerContent',[])
           bedroom:  $scope.bedrooms_selected,
           location: $scope.location,
           price:    $scope.price
-        }).then(function(data){
-          console.log('data',data);
-          $scope.resultData = data;
+        }).then(function(response){
+          console.log('data',response.data);
+          $scope.resultData = response.data;
           $scope.$hide();
         });
     }

@@ -1,17 +1,12 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
 angular.module('myApp', [
-  // 'ngRoute',
   'ui.router',
-  // 'modal.criteria',
   'mgcrea.ngStrap',
   'myApp.directives',
   'myApp.services',
   'myApp.homepage',
   'myApp.ModalInnerContent',
-  // 'myApp.view2',
-  // 'myApp.version',
   'underscore',
   'ngSanitize'
 ])
@@ -28,8 +23,6 @@ angular.module('myApp', [
 })
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
-  // $stateProvider.go('home')
-
 }]);
 
 var myDirectives = angular.module('myApp.directives', ['mgcrea.ngStrap','ui.select']);
