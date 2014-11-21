@@ -1,6 +1,7 @@
 var express = require('express')
 var app = express();
 var bodyParser  = require('body-parser');
+var fs = require('fs');
 
 app.use(bodyParser.urlencoded());
 
@@ -15,67 +16,23 @@ app.use(express.static(__dirname + '/app'));
 
 app.get('/api/bathrooms.json', function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify([
-  {
-    value: 'None',
-    index: 0
-  },
-  {
-    value: '1',
-    index: 1
-  },
-  {
-    value: '2',
-    index: 2
-  },
-  {
-    value: '3',
-    index: 3
-  },
-  {
-    value: '4+',
-    index: 4
-  }
-  ]));
+  fs.readFile('./static_data/bathrooms.json',function(err,data){
+    if (err) {
+        throw err;
+    }
+    res.end(data);
+  });
 });
 
 
 app.get('/api/bedrooms.json', function (req, res) {
   res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify([
-  {
-    value: 'None',
-    index: 0
-  },
-  {
-    value: '1',
-    index: 1
-  },
-  {
-    value: '2',
-    index: 2
-  },
-  {
-    value: '3',
-    index: 3
-  },
-  {
-    value: '4',
-    index: 4
-  },
-  {
-    value: '5',
-    index: 5
-  },
-  {
-    value: '6',
-    index: 6
-  },
-  {
-    value: '7+',
-    index: 7
-  }
-  ]));
+  fs.readFile('./static_data/bedrooms.json',function(err,data){
+    if (err) {
+        throw err;
+    }
+    res.end(data);
+  });
 });
 
 app.post('/api/criteria',function(req,res){
