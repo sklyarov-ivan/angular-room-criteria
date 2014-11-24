@@ -18,7 +18,8 @@ module.exports = function(config){
       'app/controllers/**/*.js',
       'app/services/**/*.js',
       'unit-test/**/*.js',
-      'app/bower_components/angular-mocks/angular-mocks.js'
+      'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/templates/**/*.html'
     ],
 
 
@@ -33,14 +34,19 @@ module.exports = function(config){
       'app/underscore.js': ['coverage'],
       'app/directives/**/*.js': ['coverage'],
       'app/controllers/**/*.js': ['coverage'],
-      'app/services/**/*.js': ['coverage']
+      'app/services/**/*.js': ['coverage'],
+      'app/templates/**/*.html':['ng-html2js']
+    },
+    ngHtml2JsPreprocessor: { 
+      stripPrefix: 'app/'
     },
     plugins : [
             'karma-coverage',
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-jasmine',
-            'karma-junit-reporter'
+            'karma-junit-reporter',
+            'karma-ng-html2js-preprocessor'
             ],
     coverageReporter: {
       type : 'html',

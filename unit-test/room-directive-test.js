@@ -1,10 +1,12 @@
 describe('directive: rooms',function(){
     var elm, template, $scope,$httpBackend,RoomService, $compile,directive ;
+    // beforeEach(module('app/templates/directives/rooms.html'));
     beforeEach(function(){
         angular.mock.module('myApp');
+        angular.mock.module('templates/directives/rooms.html');
+
         inject(function($injector) {
             $rootScope = $injector.get('$rootScope');
-            $httpBackend = $injector.get('$httpBackend');
             RoomService = $injector.get('RoomService');
             $compile = $injector.get('$compile');
         });
@@ -38,12 +40,6 @@ describe('directive: rooms',function(){
             };
         };
 
-
-        $httpBackend
-              .whenGET('templates/directives/rooms.html')
-              .respond ({
-                status: 200
-        }); 
         $scope = $rootScope.$new();
 
         template = angular.element('<div><rooms selected="bedrooms_selected" type="bedroom"></div>');
@@ -55,19 +51,11 @@ describe('directive: rooms',function(){
     });
 
     afterEach(function() {
-        $httpBackend.verifyNoOutstandingExpectation();
-        $httpBackend.verifyNoOutstandingRequest();
     });
 
     describe('initialisation', function() {
-        it('should produce ui-select', function() {
-            console.log(elm);
-            expect(elm.find('.select2').length).toEqual(1);
-            $httpBackend.flush();
-
+        it('should produce ui-select-multiple', function() {
+            expect(elm.find('div').eq(0).hasClass('ui-select-multiple')).toEqual(true);
         });
-        // it('should check validity on init', function() {
-        //     expect(scope.form.$valid).toBeTruthy();
-        // });
     });
 });

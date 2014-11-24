@@ -47,7 +47,7 @@ describe('Service: room-service', function () {
             });
 
             it('should return error from the server', function () {
-                var testData = 'error'
+                var testData = 'error';
                 $httpBackend
                   .expectGET('http://localhost:3000/api/bathrooms.json')
                   .respond(function (method, url, data, headers) {
